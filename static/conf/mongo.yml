@@ -1,0 +1,21 @@
+host: 192.168.3.70
+port: 27017
+username: admin
+password: yl123456
+database: yl_share_platform
+# 默认集合 :
+collection: entry_data
+
+# 以下配置适用于独立用户名密码的 database :
+database_1:
+  username: root
+  password: a123456
+  # 默认集合 :
+  collection: demo_collection
+
+# 以下配置适用于独立用户名密码的 database :
+database_2:
+  username: root
+  password: a123456
+  # 默认集合 :
+  collection: demo_collection

@@ -1,0 +1,14 @@
+# 项目, 缓存
+.settings/
+.idea/
+.pytest_cache/
+__pycache__
+/__pycache__/
+
+
+# alure
+/allure_result/
+/allure_report/
+
+# 日志
+/log/

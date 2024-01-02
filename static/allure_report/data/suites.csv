@@ -1,0 +1,9 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jan 02 20:25:54 CST 2024","Tue Jan 02 20:25:54 CST 2024","0","test_cases.test_chain_drugstore","test_demo_001","TestCaseA","","","test_a[正确的用户名，错误的密码-req_body1-exp_resp1]","
+            调用接口仅需要 : host, url, method, data 等
+        "
+"passed","Tue Jan 02 20:25:54 CST 2024","Tue Jan 02 20:25:54 CST 2024","0","test_cases.test_chain_drugstore","test_demo_001","TestCaseA","","","test_a[用户名错误，密码正确-req_body0-exp_resp0]","
+            调用接口仅需要 : host, url, method, data 等
+        "
+"passed","Tue Jan 02 20:25:54 CST 2024","Tue Jan 02 20:25:54 CST 2024","0","test_cases.test_chain_drugstore","test_demo_001","TestCaseA","","","test_b[case_data0]",""
+"passed","Tue Jan 02 20:25:54 CST 2024","Tue Jan 02 20:25:54 CST 2024","0","test_cases.test_chain_drugstore","test_demo_001","TestCaseA","","","test_b[case_data1]",""

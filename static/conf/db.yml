@@ -1,0 +1,7 @@
+host: 192.168.3.70
+port: 3306
+user: root
+password: y123456
+read_timeout: 5
+autocommit: True
+database: yl_common

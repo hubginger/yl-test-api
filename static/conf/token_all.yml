@@ -1,0 +1,27 @@
+app_yljk:
+  terminal: APP_YLHEALTH
+  token: PUBLIC_USER:+wJD2yP70WzH1vjXpzbL6VwYATIhCxPhAXuuSS6kokQ=b6f2af21b8bb4fed8807fe0521880081
+app_yljk_doctor:
+  terminal: APP_DOCTOR
+  token: DOCTOR:LFmm48zC/ksYHD3ebU8FMSLyXrV1zUUWAkeRz2P8hbA=28d04eac729345e6a76d9d8441ae416b
+app_yljk_jgs:
+  terminal: null
+  token: HEALTH_MANAGEMENT:n+aYwRdkV+e4QjmDATmR2qYwiCRAjJabY6FsylfR3cU=3e4711adc4c74e1d9fdac456f99f28e6
+pc_a:
+  terminal: WEBPC
+  token: SUPER_USER:nLz/rQm+QktIZsWyGv8b3g==a388a446afda4da4a770bd41fbc13b75
+pc_a_drugstore:
+  terminal: WEBPC
+  token: DS_USER:C7jdGPc2XqZxI2burGsHwD5F0ea9zYD+atkG9EBtu+g=41ba67880bfb481f9eb3b84cd117f555
+pc_crm_admin:
+  terminal: WEBPC
+  token: CRM_USER:G76zl1WD5ZWVTJ38HCow4A==05489e0a775b426e871bdbaeedc2f96c
+pc_h_admin:
+  terminal: WEBPC
+  token: ENT_USER:23tq2bCZoAJZrx+qpAZh2XvieiaV6UbhfGnZ9W1NHj8=e0d6e22f13f341bb9c3b94aa0efa9cd5
+pc_h_jgs:
+  terminal: WEBPC
+  token: HEALTH_MANAGEMENT:FpF86l6LZVJoQTQ6sisJaEd2QrvPNGMfEpunX73/nN8=b1931662be444fc0a846557f41a01d33
+pc_h_user:
+  terminal: WEBPC
+  token: ENT_USER:yznDfTCV0gCE8nj9O+69ppCQ1m+xlUSOr4yKxVGazzw=58e23780688f40a5a36cdd33d9f24bde

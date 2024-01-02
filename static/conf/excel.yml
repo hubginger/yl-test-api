@@ -1,0 +1,37 @@
+# column 为要读取的列,
+# index 为读取的列对应的索引, 从 1 开始, 也就是 case_id 对应 1, 以此类推
+# write_back 为回写的列
+# write_bace_index 为回写的列的索引
+file_name:
+  Delivery_System_V1.5.xlsx
+column:
+  - case_id
+  - title
+  - url
+  - method
+  - data
+  - expected
+  - expected_response
+index:
+  - 1
+  - 5
+  - 6
+  - 8
+  - 10
+  - 11
+  - 12
+write_back:
+  actual
+write_bace_index:
+  13
+
+# 如果更新了 Excel, 需回来更新该配置
+# column 和 index 保持一一对应
+# 其实可以程序写死, 根据 column 读取 index 或者将 index 写入该配置文件
+# 但是每次读取的话影响效率
+# 写回该配置的话数据同步又难以保证
+# 因此设计为将 column 和 index 都维护到该配置文件中
+# 小技巧:
+#    如果大家更新了 Excel 的列的顺序, 可以先到 DoExcel 封装类中执行 show 方法
+#    DoExcel 的 show 方法, 会打印该 excel.yml 文件中 column 对应的 index, 直接复制过来粘贴即可, 列表格式都给大家准备好了
+#    然后我们再把 index 写入该 excel.yml 文件, 就不用自己数 Excel 的表头了

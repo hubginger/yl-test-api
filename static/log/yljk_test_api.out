@@ -1,0 +1,2 @@
+[ 2024-01-02 20:27:13,620,620 ]  [ INFO     ]  [ MainThread  ]  [ do_mysql.py / 77 / __init__ ] -- ->  < id: test > 连接 MySql 成功
+[ 2024-01-02 20:27:13,678,678 ]  [ INFO     ]  [ MainThread  ]  [ do_mysql.py / 93 / __del__ ] -- ->  < id: test > 断开 MySql 成功
