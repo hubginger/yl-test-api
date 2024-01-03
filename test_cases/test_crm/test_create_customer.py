@@ -4,6 +4,7 @@
     转合作客户
 """
 import pytest
+from common import BaseApi, ExcelData, BaseAssert, yl_log
 
 
 # @Time    :  2024-01-03 11:28:37
@@ -15,15 +16,16 @@ import pytest
 
 class TestCRM:
 
-    def test_create_customer(self, login):  # login 返回 3 条数据, 这个测试方法, 会执行 3 次
-        # 0. 数据处理 , login 这个 fixture 中处理
+    def test_create_customer(self, login: ExcelData):  # login 返回 3 条数据, 这个测试方法, 会执行 3 次
+        # 0. 处理数据
+        # 放在参数化中进行处理就好了
 
         # 1. 发送请求
+        res = BaseApi().send(login.url, login.method, json=login.data)
+        yl_log.info(f'响应结果: {res}')
 
         # 2. 断言结果
-
-        print()
-        print(f'参数化的数据: {login}')
+        BaseAssert.assert_common(login.expected_response, res, 'message')
 
     def test_cooperation(self, login):
         print()

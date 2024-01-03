@@ -1,9 +1,9 @@
 host:
-  a: https://a-test:yljk.cn/api/yft
-  h: https://h-test:yljk.cn/api/yft
+  a: https://a-test.yljk.cn/api/yft
+  h: https://h-test.yljk.cn/api/yft
   c: https://crm-test.yljt.cn/api/crm
 
 verify_url:
-  a: https://a-test.yljk.cn/api/yft/user/agency_user/get_login_verify_code
-  h: https://h-test.yljk.cn/api/yft/user/agency_user/get_login_verify_code
-  c: https://crm-test.yljt.cn/api/crm/auth/verify_code
+  a: https://a-test.yljk.cn/api/yft/user/agency_user/get_login_verify_code?_t=1704275743
+  h: https://h-test.yljk.cn/api/yft/user/agency_user/get_login_verify_code?_t=1704278194
+  c: https://crm-test.yljt.cn/api/crm/auth/verify_code?_t=1704275743

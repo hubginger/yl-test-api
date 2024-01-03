@@ -1,14 +1,3 @@
-# coding=utf-8
-"""
-
-"""
-
-# @Time    :  2024-01-03 17:04:24
-# @Author  :  jiangtong
-# @Email   :  gingerqgyy@outlook.com
-# @Project :  yl_test_api
-# @File    :  base_parametrize
-# coding=utf-8
 """
     file_name = Delivery_System_V1.5.xlsx
 
@@ -45,7 +34,7 @@ from common.utils.do_excel import DoExcel, ExcelData
 # @Author  :  jiangtong
 # @Email   :  jiangtong@yljt.cn
 # @Project :  yljk_test_api
-# @File    :  do_parametrize
+# @File    :  base_data
 
 
 class CaseData:
@@ -152,7 +141,7 @@ class CaseData:
         return _res
 
 
-all_data = CaseData('Delivery_System_V1.5.xlsx')
+all_data = CaseData(do_conf.read_one('excel', 'file_name'))
 
 if __name__ == '__main__':
     # get

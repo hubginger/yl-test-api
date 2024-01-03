@@ -30,7 +30,9 @@ class ExcelData:
         将 Excel 数据加载出来之后, 将表头和数据聚合成该对象, 表头为属性, 数据为属性值
     """
 
-    case_id, title, url, method, data, expected, expected_response = None, None, None, None, None, None, None
+    case_id, title, url, method, expected, = None, None, None, None, None
+    data: dict = None
+    expected_response: dict = None
 
     def __init__(self, zip_obj):
         """

@@ -7,12 +7,17 @@
     只将 test_case 和 lib 中会用到的导入到这里
 
 """
+import hashlib
 import threading
 from common.utils.do_log import yl_log
 from common.utils.do_conf import do_conf
 from common.utils.do_mysql import DoMySql
+from common.utils.do_excel import ExcelData
 from common.utils.do_parametrize import DoExcel, CaseData, all_data
 from common.utils.do_path import ALLURE_REPORT_FOLDER, ALLURE_RESULT_FOLDER
+from common.base_api import BaseApi, requests
+from common.base_data import all_data
+from common.base_assert import BaseAssert
 
 
 # @Time    :  2023-12-29 15:33:44
@@ -60,3 +65,21 @@ def get_excel_data(sheet_name, case_id):
     single_data = SingleData()
     _res = single_data.get_excel_data(sheet_name, case_id)
     return _res
+
+
+def get_verify_info(device='a', ):
+    _url = do_conf.read_one('request', ['verify_url', device])
+    _res = requests.get(url=_url, headers={'terminal': 'WEBPC'}).json()
+    result = {'verifyCode': _res.get('result').get('verifyCode'), 'verifyId': _res.get('result').get('verifyId')}
+    return result
+
+
+def __md5(pwd: str, salt=''):
+    md5 = hashlib.md5()
+    pwd += salt
+    md5.update(pwd.encode('utf-8'))
+    return md5.hexdigest()
+
+
+if __name__ == '__main__':
+    print(get_verify_info())

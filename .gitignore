@@ -15,4 +15,7 @@ allure_report/
 /allure_report/
 
 # 日志
+static/log
+static/log/
+log/
 /log/

@@ -38,10 +38,12 @@ def pytest_runtest_makereport(item, call):
     # res = out.get_result()
     # case_data = item.callspec.params.get('case_data')
 
+    """
     k_v = item.callspec.params
     print('||' * 30)
     print(list(k_v.values())[0].case_id)
     print('||' * 30)
+    """
 
     out = yield
     res = out.get_result()

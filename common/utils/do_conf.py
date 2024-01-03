@@ -145,6 +145,34 @@ class DoConf(object):
             return None
 
     @classmethod
+    def read_one_new(cls, file_name, *args, postfix='yml', ):
+        """
+            读取部分数据
+
+            yaml 文件存在, 获取 file_name.postfix 文件中的所有数据后, 根据 _keys 中的 key, 依次取值
+            任意 key 娶不到时, 返回 None
+            yaml 文件不存在, 则直接返回 None
+
+            extract.yml 在 data 目录下, 其他在 conf 目录下
+
+            _keys 可传 str 或 list / tuple
+                str :            返回顶层 key 对应的 value
+                list / tuple :   list 中的顺序与 yaml 中的 key 顺序保持一致, 任意一个 key 未匹配到时, 返回 None
+        """
+        _file = cls._file(file_name, postfix)
+        try:
+            with open(_file, encoding='utf8') as _f:
+                _datas: dict = yaml.safe_load(_f)
+                _keys = args
+                for _key in _keys:
+                    _datas = _datas.get(_key)
+                    if not _datas:
+                        return None
+                return _datas
+        except FileNotFoundError:
+            return None
+
+    @classmethod
     def read_all(cls, file_name, postfix='yml', ):
         """
             读取全部数据
@@ -381,4 +409,9 @@ if __name__ == '__main__':
     print(do_conf.read_all('extract'))
     print(do_conf.update_practice(['a', 'b', 'c'], 'cccc'))
     print(do_conf.read_all('extract'))
+    # """
+
+    # read_one ,
+    # """
+    do_conf.read_one('request', ['', ''])
     # """
