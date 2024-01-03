@@ -1,6 +1,7 @@
 # coding=utf-8
 """
     pytest 启动文件
+    默认运行 test_case 下的所有用例
 """
 
 # @Time    :  2023-12-29 15:34:45
