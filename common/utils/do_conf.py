@@ -321,12 +321,14 @@ if __name__ == '__main__':
     # """
 
     # set
-    """
+    # """
     do_conf.set('demo_key_set', 'demo_value_set')
     print(do_conf.read_all('extract'))
     do_conf.set('demo_key', 'demo')
     print(do_conf.read_all('extract'))
     do_conf.set('demo_key', 'demo_value')
+    print(do_conf.read_all('extract'))
+    do_conf.set('key_demo', 'value_demo')
     print(do_conf.read_all('extract'))
     # """
 

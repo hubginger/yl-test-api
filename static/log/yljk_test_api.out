@@ -1,2 +1,59 @@
 [ 2024-01-02 20:27:13,620,620 ]  [ INFO     ]  [ MainThread  ]  [ do_mysql.py / 77 / __init__ ] -- ->  < id: test > 连接 MySql 成功
 [ 2024-01-02 20:27:13,678,678 ]  [ INFO     ]  [ MainThread  ]  [ do_mysql.py / 93 / __del__ ] -- ->  < id: test > 断开 MySql 成功
+[ 2024-01-03 14:38:18,457,457 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 19 / _all ] -- -> ----执行开始----
+[ 2024-01-03 14:38:18,473,473 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 21 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 14:38:52,020,020 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 14:38:52,033,033 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 14:43:42,923,923 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 14:43:42,935,935 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 16:41:26,197,197 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 16:41:26,223,223 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 16:42:08,730,730 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 16:42:08,738,738 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 16:42:46,036,036 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 16:42:46,044,044 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 16:42:57,070,070 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 16:42:57,083,083 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 17:12:38,868,868 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 17:12:38,880,880 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 43 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_create_customer[login0]
+[ 2024-01-03 17:12:38,975,975 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 17:13:34,996,996 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 17:16:22,023,023 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----
+[ 2024-01-03 17:16:26,365,365 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 20 / _all ] -- -> ----执行开始----
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_create_customer[login0]
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.0001627000019652769
+[ 2024-01-03 17:16:26,366,366 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,370,370 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_create_customer[login1]
+[ 2024-01-03 17:16:26,370,370 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,370,370 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,370,370 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,371,371 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.0002018999948631972
+[ 2024-01-03 17:16:26,371,371 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,374,374 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_create_customer[login2]
+[ 2024-01-03 17:16:26,375,375 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,375,375 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,375,375 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,375,375 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.00017129999469034374
+[ 2024-01-03 17:16:26,375,375 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,378,378 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_cooperation[login0]
+[ 2024-01-03 17:16:26,378,378 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,379,379 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,379,379 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,379,379 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.00012680000509135425
+[ 2024-01-03 17:16:26,379,379 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,382,382 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_cooperation[login1]
+[ 2024-01-03 17:16:26,382,382 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,382,382 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,382,382 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,382,382 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.00013299999409355223
+[ 2024-01-03 17:16:26,383,383 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,386,386 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 49 / pytest_runtest_makereport ] -- -> 用例ID : test_cases/test_crm/test_create_customer.py::TestCRM::test_cooperation[login2]
+[ 2024-01-03 17:16:26,386,386 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 68 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-03 17:16:26,386,386 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 69 / pytest_runtest_makereport ] -- -> 故障表示 : None
+[ 2024-01-03 17:16:26,387,387 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 70 / pytest_runtest_makereport ] -- -> 异常 : None
+[ 2024-01-03 17:16:26,387,387 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 71 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.0003220000071451068
+[ 2024-01-03 17:16:26,387,387 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 72 / pytest_runtest_makereport ] -- -> ****************************************
+[ 2024-01-03 17:16:26,388,388 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 22 / _all ] -- -> ----执行完毕----

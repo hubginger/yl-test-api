@@ -18,7 +18,7 @@
 import pytest
 
 from common import yl_log
-from common import CaseData
+from common import all_data
 
 
 def pytest_collection_modifyitems(items):
@@ -31,19 +31,25 @@ def pytest_collection_modifyitems(items):
 
 
 # 自动日志打印:
-"""
+# """
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item, call):
     # 自动日志打印
     # res = out.get_result()
     # case_data = item.callspec.params.get('case_data')
+
+    k_v = item.callspec.params
+    print('||' * 30)
+    print(list(k_v.values())[0].case_id)
+    print('||' * 30)
+
     out = yield
     res = out.get_result()
     if res.when == "call":
         yl_log.info(f"用例ID : {res.nodeid}")
 
         # 用例信息打印 :
-        # '''
+        '''
         if hasattr(item, 'callspec'):
             case_data = item.callspec.params.get('case_data')
             sheet_name = case_data.get('sheet_name')
@@ -65,11 +71,3 @@ def pytest_runtest_makereport(item, call):
         yl_log.info(f"用例耗时 : {res.duration}")
         yl_log.info("**" * 20)
 # """
-
-
-@pytest.fixture(scope='session')
-def all_data():
-    yl_log.info('----执行开始----')
-    all_data = CaseData('Delivery_System_V1.5.xlsx')
-    yield all_data
-    yl_log.info('----执行完毕----')
