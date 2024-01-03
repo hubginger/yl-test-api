@@ -7,6 +7,10 @@ __pycache__
 
 
 # alure
+static/allure_report
+static/allure_result
+allure_result/
+allure_report/
 /allure_result/
 /allure_report/
 
