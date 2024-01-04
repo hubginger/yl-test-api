@@ -906,3 +906,23 @@
 [ 2024-01-04 17:45:06,235,235 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
 [ 2024-01-04 17:45:06,236,236 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.36630349999904865
 [ 2024-01-04 17:45:06,239,239 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 18:06:00,991,991 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 18:06:01,352,352 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 10 == 10
+[ 2024-01-04 18:06:01,360,360 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_crm/test_crm_page.py::TestCRM::test_crm_page[page0]
+[ 2024-01-04 18:06:01,360,360 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 18:06:01,360,360 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 18:06:01,360,360 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.3673720000006142
+[ 2024-01-04 18:06:01,361,361 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 18:06:01,365,365 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 18:06:01,730,730 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 20 == 20
+[ 2024-01-04 18:06:01,737,737 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_crm/test_crm_page.py::TestCRM::test_crm_page[page1]
+[ 2024-01-04 18:06:01,737,737 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 18:06:01,737,737 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 18:06:01,737,737 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.36979640000208747
+[ 2024-01-04 18:06:01,738,738 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 18:06:01,742,742 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 18:06:02,343,343 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 18:06:02,345,345 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 18:06:02,704,704 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 18:06:02,706,706 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 18:06:03,078,078 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
