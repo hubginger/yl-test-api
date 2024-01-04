@@ -15,7 +15,7 @@ from common.utils.do_conf import do_conf
 from common.utils.do_mysql import DoMySql
 from common.utils.do_excel import ExcelData
 from common.utils.do_path import ALLURE_REPORT_FOLDER, ALLURE_RESULT_FOLDER
-from common.base_api import BaseApi, requests
+from common.base_api import BaseApi, BaseLogin, requests
 from common.base_data import all_data, CaseData
 from common.base_assert import BaseAssert
 from common.base_extract import extract, extract_set

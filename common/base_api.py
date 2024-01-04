@@ -8,6 +8,7 @@ from time import time
 import requests
 
 from common.utils.do_conf import do_conf
+from common.utils.do_log import yl_log
 
 
 class BaseApi:
@@ -48,6 +49,8 @@ class BaseApi:
         url = uri if uri.startswith('http') else f'{self.host}{uri}{i_d}'
         params.update({'_t': int(time())}) if params else None
         _res = requests.request(url=url, method=method, data=data, params=params, files=files, json=json, headers=self.headers)
+        yl_log.debug(f'接口地址 : {url}')
+        yl_log.debug(f'响应结果 : {_res}')
         # try:
         #     _resp = _res.json()
         # except (BaseException,):
@@ -116,6 +119,32 @@ class BaseLogin(BaseApi):
 
         # 返回 token :
         return _token
+
+    def simple_login(self, username, password=None, device='pc_c'):
+        """
+            简化登录, 最少只需要两个参数, 即可登录
+            username 就是登录的用户名/手机号
+            password 原密码, 如果没有修改原密码, 则不用传
+            device 端和用户标记, 下划线区分, 前面是大端, 后面是小端
+                大端
+                    pc
+                    app
+                    mini
+                    等
+                小端
+                    a
+                    h
+                    c
+                    doctor
+                    health
+                    jgs
+                    agent
+                    等
+                大端决定验证码的 url
+                小端决定登录的url
+                url 配置在 login.yml 中
+        """
+        pass
 
 
 if __name__ == '__main__':

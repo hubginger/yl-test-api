@@ -27,16 +27,3 @@ def login(request):
     datas.data.update(get_verify_info())
     datas.data['password'] = md5(datas.data['password'])
     yield datas
-
-
-def admin_login():
-    yield 'token'
-
-
-"""
-    fixture 参数化
-        1. fixture 会很庞大
-        2. 不方便调试, 没法直接调试 fixture, 可以参数化之后, 调试用例, 也就达到了调试 fixture 的目的     
-        3. 多人协作, 共同编辑 conftest, 合并代码容易有冲突
-    没有 libs 了, 全放 conftest 中 , 每条用例对应一个参数化的 fixture.
-"""
