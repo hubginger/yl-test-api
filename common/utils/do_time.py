@@ -36,8 +36,36 @@ def date2time(time_str: Text):
         raise ValueError('日期格式错误, 需要传入得格式为 "%Y-%m-%d %H:%M:%S" ') from e
 
 
+def time2date(time_num: float = None):
+    """
+        时间戳转换日期,
+        默认是将当前时间戳转为日期
+        传递了 time_num 就将 time_num 转日期
+
+             1704340441.676647
+                    ||
+                    ||
+               1704340441676
+                    |
+                    ∨
+            2024-01-04 11:54:01
+    """
+    time_stamp = time.time() if not time_num else time_num
+    time_stamp = float(time_num / 1000) if isinstance(time_num, int) else time_stamp
+    time_array = time.localtime(time_stamp)
+    _date = time.strftime("%Y-%m-%d %H:%M:%S", time_array)
+    return _date
+
+
 if __name__ == '__main__':
+    pass
+    """
     n = datetime.now()
     print(str(n).split('.')[0])
     n1 = date2time('2024-01-04 11:32:56')
     print(n1)
+    """
+
+    print(now())
+    print(time2date(1704340441676))
+    print(time2date(1704340441.676647))

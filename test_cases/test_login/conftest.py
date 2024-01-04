@@ -29,6 +29,10 @@ def login(request):
     yield datas
 
 
+def admin_login():
+    yield 'token'
+
+
 """
     fixture 参数化
         1. fixture 会很庞大

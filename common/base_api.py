@@ -112,7 +112,6 @@ class BaseLogin(BaseApi):
         _res = self.send(uri, method, json=login_info)
         _token = None
         if _res:
-            print(_res.get('result'))
             _token = _res.get('result').get('token')
 
         # 返回 token :
@@ -126,5 +125,13 @@ if __name__ == '__main__':
     __uri = 'https://h-test.yljk.cn/api/yft/user/agency_user/username_pwd/sign_in'
     __method = 'post'
     __token = BaseLogin(host='h').login(uri=__uri, method=__method, username='test_admin')
+    print(__token)
+    # """
+
+    # 调试, 患者登录 :
+    # """
+    __uri = ''
+    __method = ''
+    __token = BaseLogin().login(uri=__uri, method=__method, username='test_admin')
     print(__token)
     # """
