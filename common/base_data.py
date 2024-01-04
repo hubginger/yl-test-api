@@ -23,10 +23,10 @@
                 }, ... ,
         }
 """
-import threading
-from typing import Dict
 
-from common import do_conf
+from typing import Dict, List
+
+from common.utils.do_conf import do_conf
 from common.utils.do_excel import DoExcel, ExcelData
 
 
@@ -49,7 +49,7 @@ class CaseData:
         """
         _excel = DoExcel(file_name, sheet_name)
         _data = _excel.read() if sheet_name else _excel.read_all()
-        self.data: dict[str, Dict[str, ExcelData]] = _data
+        self.data: Dict[str, Dict[str, ExcelData]] = _data
 
     def get(self, sheet_name, case_id, scope='all'):
         """
@@ -65,11 +65,15 @@ class CaseData:
                     add_user
                 可以满足的匹配为:
                     add_user / add_user001 / add_user002
+
+            这里存在可以优化的空间, 就是当 scope 非 all 时, 直接生成 key , dict.get(key) 能更快拿到数据
+            比如, scope='1' , case_id = 'Login', 则直接 all_data.get('Login001'), 就能很快取到数据, __match 方法肯定比字典直接取值慢
+            不要小看这一点点的小提升, 如果每条用例都能明确 scope 范围, 不用 all, 那就是一个大提升, 前提每条用例都不用 all, 不过这样也会增加维护成本
         """
         res_data, _data = [], {}
         _data = self.data.get(sheet_name)
         for key, value in _data.items():
-            if self.__match(case_id, key):
+            if self.__match(case_id, key, scope):
                 res_data.append(value)
         return res_data
 
@@ -92,7 +96,7 @@ class CaseData:
         _data, res_params, res_ids, res_dict = {}, [], [], {'params': None, 'ids': None}
         _data = self.data.get(sheet_name)
         for key, value in _data.items():
-            if self.__match(case_id, key):
+            if self.__match(case_id, key, scope):
                 res_params.append(value)
                 res_ids.append('case')
         res_dict['params'] = res_params
@@ -104,7 +108,7 @@ class CaseData:
             原 yljk_api_test 项目中, 参数化时是直接将 'title,req_body,exp_resp' 以列表进行参数化的
             该 compatibility 方法, 就是将 'title,req_body,exp_resp' 构造出来并以列表返回
         """
-        _data: list[ExcelData] = self.get(sheet_name, case_id)
+        _data: List[ExcelData] = self.get(sheet_name, case_id, scope=scope)
         _data_s = []
         for item in _data:
             _data_s.append([item.title, item.data, item.expected_response])
@@ -132,12 +136,17 @@ class CaseData:
                 target  : doctor
                 current : login
                 return  : False
+
+            增加逻辑 :
+                根据 scope 来匹配
+                scope 为 all 时, 全匹配
+                scope 为 1-3 时, 取 1-3, 也就是 current001, current002, current003
         """
-        _res = False
-        if target == current:
-            _res = True
-        elif target.startswith(current) and target.strip(current).isdigit():
-            _res = True
+        _res = True if target == current or (target.startswith(current) and target.strip(current).isdigit()) else False
+        if _res and scope != 'all':
+            start, over = str(scope).split('-') if '-' in str(scope) else (scope, scope)
+            scope_s = [f'{current}{i:0>3}' for i in range(int(start), int(over) + 1)]
+            _res = True if target in scope_s else False
         return _res
 
 
@@ -150,15 +159,15 @@ if __name__ == '__main__':
 
     b = time()
 
-    cd = CaseData('Delivery_System_V1.5.xlsx', '登录模块')
+    cd = CaseData('Delivery_System_V1.5.xlsx', '登录模块', )
     print(cd.data)
-    match_data = cd.get('登录模块', 'Login', )
+    match_data = cd.get('登录模块', 'Login', scope='1')
     for data in match_data:
         print('Login : ', data)
 
     cd = CaseData('Delivery_System_V1.5.xlsx')
     print(cd.data)
-    match_data = cd.get('机构管理模块', 'Query_Ent', )
+    match_data = cd.get('机构管理模块', 'Query_Ent', scope='1-2')
     for data in match_data:
         print('Query_Ent : ', data)
 

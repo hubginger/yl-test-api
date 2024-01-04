@@ -20,19 +20,8 @@ import pytest
 from common import ALLURE_REPORT_FOLDER, ALLURE_RESULT_FOLDER
 
 if __name__ == '__main__':
-    # main :
-    # """
     pytest.main(['-s',
                  './test_cases',
                  '--alluredir', ALLURE_RESULT_FOLDER, '--clean-alluredir'])
 
     os.system(f"allure generate {ALLURE_RESULT_FOLDER} -o {ALLURE_REPORT_FOLDER} --clean")
-    # """
-
-    # local_debug :
-    """
-    pytest.main(['-vs',
-                 './common/demo/test_demo',
-                 '--alluredir', ALLURE_RESULT_FOLDER, '--clean-alluredir'])
-    os.system(f"allure generate {ALLURE_RESULT_FOLDER} -o {ALLURE_REPORT_FOLDER} --clean")
-    # """

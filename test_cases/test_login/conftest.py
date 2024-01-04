@@ -1,10 +1,12 @@
 # coding=utf-8
 """
-
+    conftest 文件
+    前后置
+    参数化
 """
 import pytest
 
-from common import yl_log, all_data, ExcelData, get_verify_info, do_conf, __md5
+from common import yl_log, all_data, ExcelData, get_verify_info, md5
 
 
 # @Time    :  2024-01-03 12:25:59
@@ -23,7 +25,7 @@ def login(request):
     datas: ExcelData = request.param
     yl_log.info(f'login参数化, 读取到数据: {datas}')
     datas.data.update(get_verify_info())
-    datas.data['password'] = __md5(datas.data['password'])
+    datas.data['password'] = md5(datas.data['password'])
     yield datas
 
 

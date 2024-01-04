@@ -36,14 +36,14 @@
 # @File    :  do_mongo
 from pymongo import MongoClient
 
-from common import yl_log, do_conf
-from common import do_conf
+from common.utils.do_log import yl_log
+from common.utils.do_conf import do_conf
 
 
 class MongoDbUtil:
     """
-    操作 MongoDB
-    用于数据验证和销毁
+        操作 MongoDB
+        用于数据验证和销毁
     """
 
     def __init__(self, db_conf='own_mongo', database=None, collection=None):
@@ -77,7 +77,7 @@ class MongoDbUtil:
         __connection_info.update(database=database if database else mongo_connection_s['database'])
         __connection_info.update(collection=collection if collection else mongo_connection_s['collection'])
         """
-        yl_log.debug(f'__connection_info : {__connection_info}')
+        # yl_log.debug(f'__connection_info : {__connection_info}')
         self.__connection_info = __connection_info
 
     def _connect(self, database=None, collection=None):
@@ -99,15 +99,14 @@ class MongoDbUtil:
         port = self.__connection_info['port']
         username = self.__connection_info['username']
         password = self.__connection_info['password']
-        # 传递了 database , 则走传递的 database , 未传递则走配置文件中的 database : ( 一般在创建对象时指定 )
         database = database if database else self.__connection_info['database']
-        # 传递了 collection , 则走传递的 collection , 未传递则走配置文件中的 collection : ( 一般在创建对象时指定 )
         collection = collection if collection else self.__connection_info['collection']
 
         # 链接格式 :
         _connection_info = f'mongodb://{username}:{password}@{host}:{port}?authSource=admin'
         if not self._client:
             self._client = MongoClient(_connection_info)
+            # self._client.close()
 
         # 链接 database 和 collection
         _db = self._client[database]
@@ -199,6 +198,9 @@ class MongoDbUtil:
 
 
 if __name__ == '__main__':
-    _mongo = MongoDbUtil()
-    res = _mongo.select(code='OK')
-    print(res)
+    from time import time
+
+    begin = time()
+    for i in range(99):
+        _mongo = MongoDbUtil().select(code='OK')
+    print('持续时间 : ', time() - begin)

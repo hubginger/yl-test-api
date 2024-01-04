@@ -14,9 +14,9 @@ from common import BaseApi, ExcelData, BaseAssert, yl_log
 # @File    :  test_create_customer
 
 
-class TestCRM:
+class TestLogin:
 
-    def test_create_customer(self, login: ExcelData):  # login 返回 3 条数据, 这个测试方法, 会执行 3 次
+    def test_login(self, login: ExcelData):  # login 返回 3 条数据, 这个测试方法, 会执行 3 次
         # 0. 处理数据
         # 放在参数化中进行处理就好了
 
@@ -27,13 +27,8 @@ class TestCRM:
         # 2. 断言结果
         BaseAssert.assert_common(login.expected_response, res, 'message')
 
-    def test_cooperation(self, login):
-        print()
-        print(f'参数化的数据: {login}')
-
 
 if __name__ == '__main__':
     pytest.main([
-        '-vs',
-        'test_create_customer.py::TestCRM'
+        'test_login.py::TestLogin'
     ])

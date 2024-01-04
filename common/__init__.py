@@ -74,7 +74,7 @@ def get_verify_info(device='a', ):
     return result
 
 
-def __md5(pwd: str, salt=''):
+def md5(pwd: str, salt=''):
     md5 = hashlib.md5()
     pwd += salt
     md5.update(pwd.encode('utf-8'))

@@ -16,7 +16,7 @@
 """
 from time import time
 
-from common import do_conf
+from common.utils.do_conf import do_conf
 from common.utils.do_log import slow_log
 
 
@@ -61,12 +61,12 @@ if __name__ == '__main__':
 
 
     @AnswerTime()
-    def send_slow(url='http://www.baidu.com'):
+    def send_slow(url):
         sleep(1)
 
 
     @AnswerTime()
-    def send_quick(url='http://www.yljk.com'):
+    def send_quick(url):
         pass
 
 

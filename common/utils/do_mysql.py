@@ -17,7 +17,8 @@
 # @File    :  do_mysql
 
 import pymysql
-from common import do_conf, yl_log
+from common.utils.do_conf import do_conf
+from common.utils.do_log import yl_log
 
 
 class DoMySql:

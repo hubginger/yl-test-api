@@ -17,5 +17,7 @@ allure_report/
 # 日志
 static/log
 static/log/
+static/data/~*.xlsx
+static/data/~$Delivery_System_V1.5.xlsx
 log/
 /log/

@@ -13,7 +13,8 @@ import openpyxl
 from typing import Dict
 from openpyxl.utils.exceptions import InvalidFileException
 
-from common import yl_log, do_conf
+from common.utils.do_conf import do_conf
+from common.utils.do_log import yl_log
 from common.utils.do_path import DATA_FOLDER
 
 
@@ -30,9 +31,13 @@ class ExcelData:
         将 Excel 数据加载出来之后, 将表头和数据聚合成该对象, 表头为属性, 数据为属性值
     """
 
-    case_id, title, url, method, expected, = None, None, None, None, None
-    data: dict = None
+    # 假的类属性, 只是为了顺利 . 出代码
+    # ExcelData.case_id
+    url, method, host, = None, None, 'a',
     expected_response: dict = None
+    case_id, title, = None, None,
+    sheet_name, row = None, None,
+    data: dict = None
 
     def __init__(self, zip_obj):
         """
@@ -44,10 +49,10 @@ class ExcelData:
 
               - case_id
               - title
+              - host
               - url
               - method
               - data
-              - expected
               - expected_response
         """
         # 通过 obj. 时, 有代码提示
@@ -63,12 +68,27 @@ class ExcelData:
 
     def __repr__(self):
         """
-            方便获取对象的属性和值, 生效于返回时
+            方便获取对象的属性和值, 生效于返回传递时
         """
         return str(self.__dict__)
 
 
 class DoExcel:
+    """
+        Excel 操作类
+        其中 __get_column_s 和 __get_column 不建议每次用例执行时都调用
+        建议 __get_column_s 和 __get_column 的结果放在配置文件中
+        show 方法用于调试, 比如修改了 Excel 列, 可以先来运行 show 方法
+        __json 是为了将 '{' 开头的数据直接处理成字典
+
+        read
+            读取 Excel 的某一 Sheet
+            将数据聚合成 ExcelData 对象, 使用时方便调用, excel_data_obj.case_id
+
+        read_all
+            读取 Excel 的所有 Sheet
+            内部逻辑是拿到所有 Sheet, 然后循环调用 read 方法
+    """
 
     def __init__(self, file_name, sheet_name=None):
         self.file_name = os.sep.join([DATA_FOLDER, file_name])
@@ -159,7 +179,7 @@ class DoExcel:
         list_head_use = do_conf.read_one('excel', 'column')
         column_index_s = do_conf.read_one('excel', 'index')
         datas, _num = dict(), 3
-        _res: dict[str, Dict[str, ExcelData]] = dict()
+        _res: Dict[str, Dict[str, ExcelData]] = dict()
 
         # 读取数据
         for row in sheet_stream.iter_rows(min_row=3, values_only=True):
@@ -168,7 +188,7 @@ class DoExcel:
                 case_data = ExcelData(zip(list_head_use, list_row_use)) if row and row[0] else None
                 if case_data:
                     case_data.sheet_name = self.sheet_name
-                    case_data.row_number = _num
+                    case_data.row = _num
                     _num += 1
                     datas[row[0]] = case_data
         _res[self.sheet_name] = datas
@@ -220,7 +240,7 @@ class DoExcel:
         wb.close()
 
         # 读取所有 sheet, sheet_name 为键, sheet 页所有数据为值
-        _res: dict[str, Dict[str, ExcelData]] = dict()
+        _res: Dict[str, Dict[str, ExcelData]] = dict()
         for sheet in sheet_s:
             self.sheet_name = sheet
             try:
@@ -244,9 +264,13 @@ class DoExcel:
 
         print('Excel 被参数化的列的索引: ')
         print('     ', self.__get_column_s())
+        print()
+
+        print('以下打印可直接复制粘贴到 excel.yml 中')
         for index in self.__get_column_s():
             print(f'  - {index}')
         print()
+
         try:
             wb = openpyxl.load_workbook(self.file_name)
         except InvalidFileException:

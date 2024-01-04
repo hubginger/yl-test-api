@@ -14,7 +14,7 @@ import json
 
 from jsonpath import jsonpath
 
-from common import yl_log
+from common.utils.do_log import yl_log
 
 
 # @Project : yljk_test_api

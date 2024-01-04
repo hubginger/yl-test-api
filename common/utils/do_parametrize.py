@@ -24,10 +24,9 @@
                 }, ... ,
         }
 """
-import threading
+
 from typing import Dict
 
-from common import do_conf
 from common.utils.do_excel import DoExcel, ExcelData
 
 

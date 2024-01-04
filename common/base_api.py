@@ -7,7 +7,7 @@ from time import time
 
 import requests
 
-from common import do_conf
+from common.utils.do_conf import do_conf
 
 
 class BaseApi:

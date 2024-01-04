@@ -18,7 +18,6 @@
 import pytest
 
 from common import yl_log
-from common import all_data
 
 
 def pytest_collection_modifyitems(items):
@@ -30,46 +29,23 @@ def pytest_collection_modifyitems(items):
             str(item.callspec.params.get('case_data')).encode("utf-8").decode("unicode_escape")
 
 
-# 自动日志打印:
+# 自动日志打印 :
 # """
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item, call):
-    # 自动日志打印
-    # res = out.get_result()
-    # case_data = item.callspec.params.get('case_data')
-
-    """
-    k_v = item.callspec.params
-    print('||' * 30)
-    print(list(k_v.values())[0].case_id)
-    print('||' * 30)
-    """
-
     out = yield
+    # yl_log.info(" *_* " * 20)
     res = out.get_result()
     if res.when == "call":
-        yl_log.info(f"用例ID : {res.nodeid}")
-
-        # 用例信息打印 :
-        '''
+        yl_log.info(f"用例位置 : {res.nodeid}")
         if hasattr(item, 'callspec'):
-            case_data = item.callspec.params.get('case_data')
-            sheet_name = case_data.get('sheet_name')
-            row = case_data['id']
-            url = case_data.get('url')
-            method = case_data.get('method')
-            _data = case_data.get('data')
-            data = _data.encode("utf-8").decode("unicode_escape") if isinstance(_data, str) else _data
-
-            yl_log.info(f"用例位置 : {sheet_name} 第 {row} 行")
-            yl_log.info(f"请求地址 : {url}")
-            yl_log.info(f"请求方法 : {method}")
-            yl_log.info(f"请求参数 : {data}")
-        # '''
-
+            case_obj = tuple(item.callspec.params.values())[0]
+            yl_log.info(f"数据位置 : Sheet: <{case_obj.sheet_name}> 第 row: <{case_obj.row}> 行")
+            yl_log.info(f"请求地址 : {case_obj.url}")
+            yl_log.info(f"请求方法 : {case_obj.method}")
+            yl_log.info(f"请求参数 : {case_obj.data}")
         yl_log.info(f"测试结果 : {res.outcome}")
-        yl_log.info(f"故障表示 : {res.longrepr}")
-        yl_log.info(f"异常 : {call.excinfo}")
+        yl_log.info(f"异常信息 : {call.excinfo}")
         yl_log.info(f"用例耗时 : {res.duration}")
-        yl_log.info("**" * 20)
+        yl_log.info(" *¯* " * 20)
 # """

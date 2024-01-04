@@ -39,6 +39,6 @@ if __name__ == '__main__':
     show(ALLURE_RESULT_FOLDER)
     show(ALLURE_REPORT_FOLDER)
 
-    print('文件是否存在与文件路径')
+    print('文件是否存在, 与文件路径 : ')
     show(LOG_FILE)
     show(SLOW_LOG_FILE)
