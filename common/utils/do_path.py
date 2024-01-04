@@ -19,7 +19,7 @@ DATA_FOLDER = os.sep.join([PROJECT_PATH, 'static', 'data'])
 LOG_FOLDER = os.sep.join([PROJECT_PATH, 'static', 'log'])
 ALLURE_RESULT_FOLDER = os.sep.join([PROJECT_PATH, 'static', 'allure_result'])
 ALLURE_REPORT_FOLDER = os.sep.join([PROJECT_PATH, 'static', 'allure_report'])
-CASE_FOLDER = os.sep.join([PROJECT_PATH, 'test_cases'])
+CASE_FOLDER = os.sep.join([PROJECT_PATH, 'cases'])
 
 # 文件
 LOG_FILE = os.sep.join([LOG_FOLDER, 'yljk_test_api.out'])

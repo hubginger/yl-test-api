@@ -859,3 +859,50 @@
 [ 2024-01-04 17:38:18,065,065 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
 [ 2024-01-04 17:38:18,066,066 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.3715082999988226
 [ 2024-01-04 17:38:18,068,068 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 17:45:03,399,399 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 17:45:03,740,740 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 10 == 10
+[ 2024-01-04 17:45:03,747,747 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_crm/test_crm_page.py::TestCRM::test_crm_page[page0]
+[ 2024-01-04 17:45:03,747,747 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 17:45:03,747,747 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 17:45:03,747,747 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.34690969999792287
+[ 2024-01-04 17:45:03,748,748 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 17:45:03,751,751 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 17:45:04,133,133 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 20 == 20
+[ 2024-01-04 17:45:04,140,140 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_crm/test_crm_page.py::TestCRM::test_crm_page[page1]
+[ 2024-01-04 17:45:04,140,140 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 17:45:04,140,140 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 17:45:04,140,140 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.3883490000007441
+[ 2024-01-04 17:45:04,141,141 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 17:45:04,145,145 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 17:45:04,848,848 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 当前账号不存在 == 当前账号不存在
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_login/test_login.py::TestLogin::test_login[login0]
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 57 / pytest_runtest_makereport ] -- -> 数据位置 : Sheet: < 登录模块 > RowNumber: < 3 >
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 58 / pytest_runtest_makereport ] -- -> 请求地址 : /user/agency_user/username_pwd/sign_in
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 59 / pytest_runtest_makereport ] -- -> 请求方法 : post
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 60 / pytest_runtest_makereport ] -- -> 请求参数 : {'authType': 'usernamePassword', 'idType': 'USERNAME', 'loginId': 'ceshi288', 'password': 'dc483e80a7a0bd9ef71d8cf973673924', 'verifyCode': '8225', 'verifyId': '4190b3cd30f4470284ec74d76bb91f0d'}
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 17:45:04,849,849 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.3419659999999567
+[ 2024-01-04 17:45:04,850,850 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 17:45:04,852,852 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 17:45:05,533,533 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : 密码错误,输入密码不匹配 == 密码错误,输入密码不匹配
+[ 2024-01-04 17:45:05,533,533 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_login/test_login.py::TestLogin::test_login[login1]
+[ 2024-01-04 17:45:05,533,533 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 57 / pytest_runtest_makereport ] -- -> 数据位置 : Sheet: < 登录模块 > RowNumber: < 4 >
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 58 / pytest_runtest_makereport ] -- -> 请求地址 : /user/agency_user/username_pwd/sign_in
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 59 / pytest_runtest_makereport ] -- -> 请求方法 : post
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 60 / pytest_runtest_makereport ] -- -> 请求参数 : {'authType': 'usernamePassword', 'idType': 'USERNAME', 'loginId': 'ceshi2', 'password': '5690dddfa28ae085d23518a035707282', 'verifyCode': '5702', 'verifyId': '277beed259844ac68891971c910048bd'}
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 17:45:05,534,534 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.3427071000005526
+[ 2024-01-04 17:45:05,535,535 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  
+[ 2024-01-04 17:45:05,537,537 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 39 / auto_log ] -- -> *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  *_*  
+[ 2024-01-04 17:45:06,232,232 ]  [ INFO     ]  [ MainThread  ]  [ base_assert.py / 125 / assert_common ] -- -> 断言通过 : OK == OK
+[ 2024-01-04 17:45:06,233,233 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 51 / pytest_runtest_makereport ] -- -> 用例位置 : cases/test_login/test_login.py::TestLogin::test_login[login2]
+[ 2024-01-04 17:45:06,233,233 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 57 / pytest_runtest_makereport ] -- -> 数据位置 : Sheet: < 登录模块 > RowNumber: < 5 >
+[ 2024-01-04 17:45:06,234,234 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 58 / pytest_runtest_makereport ] -- -> 请求地址 : /user/agency_user/username_pwd/sign_in
+[ 2024-01-04 17:45:06,234,234 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 59 / pytest_runtest_makereport ] -- -> 请求方法 : post
+[ 2024-01-04 17:45:06,234,234 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 60 / pytest_runtest_makereport ] -- -> 请求参数 : {'authType': 'usernamePassword', 'idType': 'USERNAME', 'loginId': 'ceshi2', 'password': 'dc483e80a7a0bd9ef71d8cf973673924', 'verifyCode': '2198', 'verifyId': '7734e28f5fa840d991f1ad19ed528780'}
+[ 2024-01-04 17:45:06,235,235 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 61 / pytest_runtest_makereport ] -- -> 测试结果 : passed
+[ 2024-01-04 17:45:06,235,235 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 62 / pytest_runtest_makereport ] -- -> 异常信息 : None
+[ 2024-01-04 17:45:06,236,236 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 63 / pytest_runtest_makereport ] -- -> 用例耗时 : 0.36630349999904865
+[ 2024-01-04 17:45:06,239,239 ]  [ INFO     ]  [ MainThread  ]  [ conftest.py / 41 / auto_log ] -- -> *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  *¯*  

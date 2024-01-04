@@ -162,7 +162,7 @@ all_data = CaseData(do_conf.read_one('excel', 'file_name'))
 
 if __name__ == '__main__':
     # get
-    # """
+    """
     from time import time
 
     b = time()
@@ -186,7 +186,7 @@ if __name__ == '__main__':
     # """
 
     # original
-    # """
+    """
     cd = CaseData('Delivery_System_V1.5.xlsx', '登录模块')
     _all = cd.original('登录模块', 'Login', )
     print(_all)

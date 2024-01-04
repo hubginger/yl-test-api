@@ -56,7 +56,7 @@ def extract(target: Dict, *keys):
     return _target
 
 
-@allure.step('提取')
+@allure.step('提写')
 def extract_set(target: Dict, key, *keys):
     """
         提取并存储, 根据 keys 从 target 提取后
@@ -73,7 +73,7 @@ def extract_set(target: Dict, key, *keys):
 @allure.step('提取')
 def json_one(target: Dict, key):
     """
-        jsonpath 提取, 如果仅传递一个 key, 比如 ( name ) , 则会转换为 $..name 进行提取
+        jsonpath 提取, 如果仅传递一个 key, 比如 'name' , 则会转换为 $..name 进行提取
         对 target 应用 jsonpath 表达式进行提取
         如果没有提取到数据, 则返回 None
         如果提取到数据, 则返回第一个匹配到的数据
