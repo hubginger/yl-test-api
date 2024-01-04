@@ -84,7 +84,7 @@ class BaseAssert:
             参数说明 :
                 :param expected:   预期结果
                 :param actual:     实际结果
-                :param keys:       不定长参数, 简化调用时的传参
+                :param keys:       不定长参数, 简化调用时的传参, 就像 print 那样传参数, 逻辑是从第一个开始, 一层一层往里找数据, 找不到时返回 None 和 ''
         """
         _expr_actual = 'actual'
         _expr_expect = 'expected'

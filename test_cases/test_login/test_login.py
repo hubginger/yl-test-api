@@ -22,7 +22,8 @@ class TestLogin:
 
         # 1. 发送请求
         res = BaseApi().send(login.url, login.method, json=login.data)
-        yl_log.info(f'响应结果: {res}')
+        yl_log.debug(f'预期结果: {login.expected_response}')
+        yl_log.debug(f'响应结果: {res}')
 
         # 2. 断言结果
         BaseAssert.assert_common(login.expected_response, res, 'message')

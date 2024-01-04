@@ -67,8 +67,8 @@ class CaseData:
                     add_user / add_user001 / add_user002
 
             这里存在可以优化的空间, 就是当 scope 非 all 时, 直接生成 key , dict.get(key) 能更快拿到数据
-            比如, scope='1' , case_id = 'Login', 则直接 all_data.get('Login001'), 就能很快取到数据, __match 方法肯定比字典直接取值慢
-            不要小看这一点点的小提升, 如果每条用例都能明确 scope 范围, 不用 all, 那就是一个大提升, 前提每条用例都不用 all, 不过这样也会增加维护成本
+            比如, scope='1' , case_id = 'Login', 则直接 all_data.get('Login001'), 就能很快取到数据, __match 方法肯定比直接字典直接取值慢
+            不要小看这一点点的小提升, 如果每条用例都能明确 scope 范围, 不用 all, 那就是一个大提升, 前提每条用例都不用 all, 增加维护成本用以换取效率
         """
         res_data, _data = [], {}
         _data = self.data.get(sheet_name)
@@ -92,6 +92,9 @@ class CaseData:
                     add_user
                 可以满足的匹配为:
                     add_user / add_user001 / add_user002
+
+            fetch 其实和 get 是一样的, 只不过 fetch 返回格式为 ('params': [row_obj_01, ...], 'ids':['case', ...])
+            fetch 返回的格式, 直接拆包就是 fixture 要的关键字传参格式了
         """
         _data, res_params, res_ids, res_dict = {}, [], [], {'params': None, 'ids': None}
         _data = self.data.get(sheet_name)
@@ -106,7 +109,11 @@ class CaseData:
     def original(self, sheet_name, case_id, scope='all'):
         """
             原 yljk_api_test 项目中, 参数化时是直接将 'title,req_body,exp_resp' 以列表进行参数化的
-            该 compatibility 方法, 就是将 'title,req_body,exp_resp' 构造出来并以列表返回
+            该 original 方法, 就是将 'title,req_body,exp_resp' 构造出来并以列表返回, 兼容老逻辑代码
+
+            使用时, 最好先定义一个和原参数化同名的函数, 注意一定是函数, 不是类方法,
+            然后该方法放在原 handle_excel 中, 注释掉函数即可,
+            如此就可以无缝实现函数的逻辑替换了, 不用每个用例都去修改导包或者调用了,
         """
         _data: List[ExcelData] = self.get(sheet_name, case_id, scope=scope)
         _data_s = []
@@ -139,8 +146,9 @@ class CaseData:
 
             增加逻辑 :
                 根据 scope 来匹配
-                scope 为 all 时, 全匹配
-                scope 为 1-3 时, 取 1-3, 也就是 current001, current002, current003
+                scope 为 all 时, 全匹配, 也就是 Login001, Login002, Login003, LoginAdmin001, 根据 Login 匹配时, 取到 Login001, Login002, Login003
+                scope 为 1-2 时, 取 1-2, 也就是 Login001, Login002,
+                scope 传递具体数值时, 要保证 '-' 前的数值小于 '-' 后的数值
         """
         _res = True if target == current or (target.startswith(current) and target.strip(current).isdigit()) else False
         if _res and scope != 'all':
@@ -167,7 +175,7 @@ if __name__ == '__main__':
 
     cd = CaseData('Delivery_System_V1.5.xlsx')
     print(cd.data)
-    match_data = cd.get('机构管理模块', 'Query_Ent', scope='1-2')
+    match_data = cd.get('机构管理模块', 'Query_Ent', scope='1-4')
     for data in match_data:
         print('Query_Ent : ', data)
 

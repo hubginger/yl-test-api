@@ -23,7 +23,7 @@ def login(request):
         先将数据初始化完毕, 然后再 yield 返回
     """
     datas: ExcelData = request.param
-    yl_log.info(f'login参数化, 读取到数据: {datas}')
+    yl_log.debug(f'参数化读取到数据: {datas}')
     datas.data.update(get_verify_info())
     datas.data['password'] = md5(datas.data['password'])
     yield datas

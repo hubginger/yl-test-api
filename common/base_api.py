@@ -48,12 +48,12 @@ class BaseApi:
         url = uri if uri.startswith('http') else f'{self.host}{uri}{i_d}'
         params.update({'_t': int(time())}) if params else None
         _res = requests.request(url=url, method=method, data=data, params=params, files=files, json=json, headers=self.headers)
-        try:
-            _resp = _res.json()
-        except (BaseException,):
-            _resp = _res.content.decode('utf8')
-
-        return _resp
+        # try:
+        #     _resp = _res.json()
+        # except (BaseException,):
+        #     _resp = _res.content.decode('utf8')
+        _res.encoding = 'utf-8'
+        return _res.json()
 
     # 文件上传
     def file_upload(self, uri, method, file_path: str):
@@ -123,8 +123,8 @@ if __name__ == '__main__':
     pass
     # 调试, 全病程登录 :
     # """
-    _uri = 'https://h-test.yljk.cn/api/yft/user/agency_user/username_pwd/sign_in'
-    _method = 'post'
-    _token = BaseLogin(host='h').login(uri=_uri, method=_method, username='ginger')
-    print(_token)
+    __uri = 'https://h-test.yljk.cn/api/yft/user/agency_user/username_pwd/sign_in'
+    __method = 'post'
+    __token = BaseLogin(host='h').login(uri=__uri, method=__method, username='test_admin')
+    print(__token)
     # """
