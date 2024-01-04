@@ -3,7 +3,7 @@
     crm conftest
 """
 import pytest
-from common import BaseLogin, do_conf
+from common import BaseLogin
 
 
 # @Time    :  2024-01-04 14:09:30
@@ -14,6 +14,13 @@ from common import BaseLogin, do_conf
 
 @pytest.fixture(scope='package')
 def token():
-    uri = do_conf.read_one('login')
-    BaseLogin().login()
-    yield
+    token = BaseLogin(host='c').simple_login('gingerqgyy', device='pc_c')
+    yield token
+
+
+@pytest.fixture(scope='function', params=[{'pageSize': '10'}, {'pageSize': '20'}], name='page')
+def page(request):
+    _data = request.param
+    _data['pageNo'] = '1'
+    _data['clientStatus'] = 'PROSPECTIVE_CUSTOMER'
+    yield _data

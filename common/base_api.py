@@ -7,6 +7,7 @@ from time import time
 
 import requests
 
+from common.base_device import Device
 from common.utils.do_conf import do_conf
 from common.utils.do_log import yl_log
 
@@ -50,7 +51,7 @@ class BaseApi:
         params.update({'_t': int(time())}) if params else None
         _res = requests.request(url=url, method=method, data=data, params=params, files=files, json=json, headers=self.headers)
         yl_log.debug(f'接口地址 : {url}')
-        yl_log.debug(f'响应结果 : {_res}')
+        yl_log.debug(f'响应结果 : {_res.content.decode('utf-8')}')
         # try:
         #     _resp = _res.json()
         # except (BaseException,):
@@ -83,8 +84,7 @@ class BaseLogin(BaseApi):
             根据 device 标记来获取验证码
             device 仅可以为: pc / app / mini
             当为 pc 时, 查询验证码, 返回 code 和 id 组成的字典
-            不为 pc 时, 不查验证码, 返回空字典
-
+            不为 pc 时, 不查验证码, 返回空字典, 空字典是为了无缝 update , 机智吧, 哈哈哈
         """
         result = {}
         if device and device.strip().lower() == 'pc':
@@ -92,7 +92,7 @@ class BaseLogin(BaseApi):
             result = {'verifyCode': _res.get('result').get('verifyCode'), 'verifyId': _res.get('result').get('verifyId')}
         return result
 
-    def login(self, uri, method, username, password=None, device='pc'):
+    def login(self, uri, username, method='post', password=None, device='pc'):
         """
             username 为登录时的用户名或手机号, 如果是 app 端, 通过手机号登录, 则 username 传手机号,
 
@@ -120,31 +120,42 @@ class BaseLogin(BaseApi):
         # 返回 token :
         return _token
 
-    def simple_login(self, username, password=None, device='pc_c'):
+    def simple_login(self, username, password=None, device='pc_a'):
         """
-            简化登录, 最少只需要两个参数, 即可登录
-            username 就是登录的用户名/手机号
-            password 原密码, 如果没有修改原密码, 则不用传
-            device 端和用户标记, 下划线区分, 前面是大端, 后面是小端
-                大端
-                    pc
-                    app
-                    mini
-                    等
-                小端
-                    a
-                    h
-                    c
-                    doctor
-                    health
-                    jgs
-                    agent
-                    等
-                大端决定验证码的 url
-                小端决定登录的url
-                url 配置在 login.yml 中
+            简化登录, 最少只需要一个参数, 即可登录 , (username)
+            username  就是登录的用户名/手机号
+            password  原密码, 如果没有修改原密码, 则不用传
+            device    两部分组成, 用下划线区分
+                device 当前仅支持:
+                    pc_a          pc 端, 运营端
+                    pc_c          pc 端, CRM
+                    pc_h          pc 端, 全病程
+                    app_h         app 端, host 为全病程
+                    public_h      app 端, host 为全病程, 专为患者服务, 患者登录时和医生与健管师不一致
+
+            该方法需维护
+            当有其他参数类型, 有其他端时, 需要到 login.yml 中维护数据
         """
-        pass
+
+        # 根据 pc_c 中的 pc, 从 login.yml 配置文件中取登录时的参数格式. 根据 pc_a 从 login.yml 中取登录时的 url.
+        _terminal = device.split('_')[0]
+        login_info = do_conf.read_one('login', _terminal)
+        login_url = do_conf.read_one('login', device)
+        password = password if password else do_conf.read_one('login', 'password')
+        _verify_info = self.__verify_info(_terminal)
+
+        login_info['loginId'] = username
+        login_info['password'] = password
+        login_info.update(_verify_info)
+
+        # 登录 :
+        _res = self.send(login_url, 'post', json=login_info)
+        _token = None
+        if _res:
+            _token = _res.get('result').get('token')
+
+        # 返回 token :
+        return _token
 
 
 if __name__ == '__main__':

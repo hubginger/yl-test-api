@@ -19,6 +19,7 @@ from common.base_api import BaseApi, BaseLogin, requests
 from common.base_data import all_data, CaseData
 from common.base_assert import BaseAssert
 from common.base_extract import extract, extract_set
+from common.base_device import Device
 
 
 # @Time    :  2023-12-29 15:33:44

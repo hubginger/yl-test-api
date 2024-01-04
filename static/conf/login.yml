@@ -1,7 +1,7 @@
 pc:
   authType: usernamePassword
   idType: USERNAME
-  loginId: user_id
+  loginId: test_admin
   password: dc483e80a7a0bd9ef71d8cf973673924
   verifyCode: 8844.43
   verifyId: ++++
@@ -16,6 +16,13 @@ app:
   loginId: test_admin
   password: dc483e80a7a0bd9ef71d8cf973673924
 
+public:
+  loginId: 18888888888
+  canVerifyCode: false
+  password: dc483e80a7a0bd9ef71d8cf973673924
+  idType: USERNAME
+  userType: PUBLIC_USER
+
 mini:
   # 小程序最麻烦, 当前未实现, 需找开发支持
   ----
@@ -23,12 +30,13 @@ mini:
 password: dc483e80a7a0bd9ef71d8cf973673924
 
 
+# 登录时, 按照 _ 切割, 根据第一个取参数格式, 根据全部取登录的 url :
 pc_a: https://a-test.yljt.cn/api/crm/auth/system_user/username_pwd/sign_in
 pc_c: https://crm-test.yljt.cn/api/crm/auth/system_user/username_pwd/sign_in
 pc_h: https://h-test.yljt.cn/api/crm/auth/system_user/username_pwd/sign_in
-app_doctor: https://h-test.yljt.cn/api/yft/user/agency_user/username_pwd/sign_in
-app_health: https://h-test.yljt.cn/api/yft/user/agency_user/username_pwd/sign_in
-app_jgs: https://h-test.yljt.cn/api/yft/user/agency_user/username_pwd/sign_in
+app_h: https://h-test.yljt.cn/api/yft/user/agency_user/username_pwd/sign_in
+public_h: https://h-test.yljt.cn/api/yft/user/public_user/sign_in
+
 
 
 # 关于 verifyId :

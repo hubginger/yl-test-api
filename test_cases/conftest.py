@@ -10,7 +10,7 @@
 import allure
 import pytest
 
-from common import yl_log
+from common import yl_log, ExcelData
 
 
 # @Time    :  2024-01-02 00:03:36
@@ -51,11 +51,13 @@ def pytest_runtest_makereport(item, call):
         yl_log.info(f"用例位置 : {res.nodeid}")
         if hasattr(item, 'callspec'):
             case_obj = tuple(item.callspec.params.values())[0]
-            allure.dynamic.title(case_obj.title)
-            yl_log.info(f"数据位置 : Sheet: < {case_obj.sheet_name} > RowNumber: < {case_obj.row} >")
-            yl_log.info(f"请求地址 : {case_obj.url}")
-            yl_log.info(f"请求方法 : {case_obj.method}")
-            yl_log.info(f"请求参数 : {case_obj.data}")
+            if hasattr(case_obj, 'title'):
+                allure.dynamic.title(case_obj.title)
+            if isinstance(case_obj, ExcelData):
+                yl_log.info(f"数据位置 : Sheet: < {case_obj.sheet_name} > RowNumber: < {case_obj.row} >")
+                yl_log.info(f"请求地址 : {case_obj.url}")
+                yl_log.info(f"请求方法 : {case_obj.method}")
+                yl_log.info(f"请求参数 : {case_obj.data}")
         yl_log.info(f"测试结果 : {res.outcome}")
         yl_log.info(f"异常信息 : {call.excinfo}")
         yl_log.info(f"用例耗时 : {res.duration}")

@@ -98,10 +98,21 @@ class BaseAssert:
             expected = expected if isinstance(expected, dict) else eval(expected)
             _actual = eval(_expr_actual)
             _expected = eval(_expr_expect)
+
         except (KeyError, TypeError, NameError):
             # 娶不到时, 就可能 KeyError, 还有下级时取到非 dict, 就可能 TypeError, 当异常时, 就让 _actual 为 None, 让 _expected 为 ''
             _actual = None
             _expected = ''
+
+        try:
+            _actual = eval(_actual)
+        except (KeyError, TypeError, NameError):
+            _actual = _actual
+
+        try:
+            _expected = eval(_expected)
+        except (KeyError, TypeError, NameError):
+            _expected = _expected
 
         try:
             assert _expected == _actual
