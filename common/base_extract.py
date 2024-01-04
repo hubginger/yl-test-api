@@ -30,12 +30,13 @@ from common.utils.do_log import yl_log
 # @Project :  yl_test_api
 # @File    :  base_extract
 
-
+@allure.step('写入')
 def set2yml(key, value):
     do_conf.set(key, value)
     yl_log.debug(f'写入数据成功, 数据为: < {key}: {value} >')
 
 
+@allure.step('提取')
 def extract(target: Dict, *keys):
     """
         根据 keys 的顺序, 按照层级从 target 中提取
@@ -55,7 +56,7 @@ def extract(target: Dict, *keys):
     return _target
 
 
-@allure.step('提取数据')
+@allure.step('提取')
 def extract_set(target: Dict, key, *keys):
     """
         提取并存储, 根据 keys 从 target 提取后
@@ -69,27 +70,31 @@ def extract_set(target: Dict, key, *keys):
         yl_log.warning(f'extract.yml 未写入数据, 因为根据 {keys} 从 {target} 提取到 < None >')
 
 
-def json_one(target: Dict, expression):
+@allure.step('提取')
+def json_one(target: Dict, key):
     """
-        jsonpath 提取
-        对 target 应用 expression 表达式进行提取
+        jsonpath 提取, 如果仅传递一个 key, 比如 ( name ) , 则会转换为 $..name 进行提取
+        对 target 应用 jsonpath 表达式进行提取
         如果没有提取到数据, 则返回 None
-        如果提取到数据, 则返回第一个
+        如果提取到数据, 则返回第一个匹配到的数据
     """
     _target = target if isinstance(target, Dict) else eval(target)
-    _res_s = jsonpath.jsonpath(target, expression)
+    _expression = key if key.startswith('$') else f'$..{key}'
+    _res_s = jsonpath.jsonpath(target, _expression)
     _res = _res_s[0] if _res_s else None
-    yl_log.debug(f'Json提取__提取语句: {expression}')
+    yl_log.debug(f'Json提取__提取语句: {_expression}')
     yl_log.debug(f'Json提取__提取目标: {target}')
     yl_log.debug(f'Json提取__提取结果: {_res_s}')
     yl_log.debug(f'Json提取__使用结果: {_res}')
     return _res
 
 
+@allure.step('提取')
 def json_list():
     return
 
 
+@allure.step('提取')
 def extract_list():
     return
 
@@ -108,9 +113,9 @@ if __name__ == '__main__':
     """
 
     # json_one :
-    """
+    # """
     __target = {"code": "OK", "result": {"user_info": {"name": "Admin"}, 'name': '法外狂徒'}}
-    print(json_one(__target, '$..name'))
+    print(json_one(__target, '$..id'))
     # """
 
     # set2yml :

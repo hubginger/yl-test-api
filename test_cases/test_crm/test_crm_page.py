@@ -7,7 +7,7 @@ import os
 
 import pytest
 
-from common import BaseApi, BaseAssert, ALLURE_RESULT_FOLDER, ALLURE_REPORT_FOLDER
+from common import BaseApi, BaseAssert, ALLURE_RESULT_FOLDER, ALLURE_REPORT_FOLDER, json_one, set2yml
 
 
 # @Time    :  2024-01-04 15:17:55
@@ -23,6 +23,9 @@ class TestCRM:
         _res = BaseApi(token).send(uri=url, method='get', params=page)
         _exp = {'result': {'size': page['pageSize']}}
         BaseAssert.assert_common(_exp, _res, 'result', 'size')
+
+        _id = json_one(_res, 'id')
+        set2yml('_id', _id)
 
 
 if __name__ == '__main__':
