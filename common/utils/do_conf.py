@@ -2,6 +2,9 @@
 """
     配置文件操作
         .yaml / .yml
+
+    get / set / get_all 针对于 extract.yml
+    其他方法适用于素有 yml 配置文件
 """
 
 # @Time    :  2023-12-29 17:50:59
