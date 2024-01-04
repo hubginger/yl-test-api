@@ -5,11 +5,13 @@
 import hashlib
 from time import time
 
+import allure
 import requests
 
 from common.base_device import Device
 from common.utils.do_conf import do_conf
 from common.utils.do_log import yl_log
+from common.utils.do_slow_api import AnswerTime
 
 
 class BaseApi:
@@ -46,6 +48,8 @@ class BaseApi:
         headers = {'terminal': terminal, 'token': token}
         self.headers = headers
 
+    @allure.step('发起请求')
+    @AnswerTime()
     def send(self, uri: str, method: str, data=None, params=None, files=None, json=None, i_d=''):
         url = uri if uri.startswith('http') else f'{self.host}{uri}{i_d}'
         params.update({'_t': int(time())}) if params else None
@@ -120,6 +124,7 @@ class BaseLogin(BaseApi):
         # 返回 token :
         return _token
 
+    @allure.step('登录')
     def simple_login(self, username, password=None, device='pc_a'):
         """
             简化登录, 最少只需要一个参数, 即可登录 , (username)

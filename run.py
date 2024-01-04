@@ -23,4 +23,6 @@ if __name__ == '__main__':
     pytest.main(['./test_cases',
                  '--alluredir', ALLURE_RESULT_FOLDER, '--clean-alluredir'])
 
-    os.system(f"allure generate {ALLURE_RESULT_FOLDER} -o {ALLURE_REPORT_FOLDER} --clean")
+    os.system(f'allure serve {ALLURE_RESULT_FOLDER}')
+
+    os.system(f'allure generate {ALLURE_RESULT_FOLDER} -c -o {ALLURE_REPORT_FOLDER} --clean')

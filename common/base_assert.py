@@ -12,6 +12,7 @@
 """
 import json
 
+import allure
 from jsonpath import jsonpath
 
 from common.utils.do_log import yl_log
@@ -69,6 +70,7 @@ class BaseAssert:
             yl_log.info(f'断言通过 : {expected} == {_actual}')
 
     @staticmethod
+    @allure.step('断言')
     def assert_common(expected, actual, *keys):
         """
             该断言方法仅适用于接口响应为 json 的场景

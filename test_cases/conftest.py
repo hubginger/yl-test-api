@@ -52,7 +52,7 @@ def pytest_runtest_makereport(item, call):
         if hasattr(item, 'callspec'):
             case_obj = tuple(item.callspec.params.values())[0]
             if hasattr(case_obj, 'title'):
-                allure.dynamic.title(case_obj.title)
+                allure.dynamic.title(case_obj.case_id + case_obj.title)
             if isinstance(case_obj, ExcelData):
                 yl_log.info(f"数据位置 : Sheet: < {case_obj.sheet_name} > RowNumber: < {case_obj.row} >")
                 yl_log.info(f"请求地址 : {case_obj.url}")

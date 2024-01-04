@@ -47,7 +47,8 @@ class AnswerTime:
             end_time = time() * 1000
 
             consume_time = int(end_time - start_time)
-            url = kwargs["url"]
+
+            url = kwargs.get('uri') if kwargs.get('uri') else kwargs.get('url')
 
             if consume_time > self._maximum_time:
                 slow_log.error(f'api_url: {url} consume_time: {consume_time} ms, maximum_time: {self._maximum_time} ms.')

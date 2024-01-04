@@ -16,6 +16,9 @@
         regular 正则表达式提取
 """
 from typing import Dict
+
+import allure
+
 from common.utils.do_conf import do_conf
 from common.utils.do_log import yl_log
 
@@ -46,6 +49,7 @@ def extract(target: Dict, *keys):
     return _target
 
 
+@allure.step('提取数据')
 def extract_set(target: Dict, key, *keys):
     """
         提取并存储, 根据 keys 从 target 提取后

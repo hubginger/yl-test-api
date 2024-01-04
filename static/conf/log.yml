@@ -1,7 +1,7 @@
 # 日志等级, ( debug / info / warning / error / critical ) 大小写均可 , 一般修改 log_collection 的等级即可
 log_level:
 
-  log_collection: info
+  log_collection: debug
   out_to_console: debug
   out_to_file: info
 
