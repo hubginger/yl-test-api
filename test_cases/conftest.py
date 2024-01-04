@@ -4,18 +4,20 @@
 
         修改编码
         打印日志
+        allure 报告 title
 
 """
+import allure
+import pytest
+
+from common import yl_log
+
 
 # @Time    :  2024-01-02 00:03:36
 # @Author  :  jiangtong
 # @Email   :  jiangtong@yljt.cn
 # @Project :  yljk_test_api
 # @File    :  conftest
-
-import pytest
-
-from common import yl_log
 
 
 def pytest_collection_modifyitems(items):
@@ -49,6 +51,7 @@ def pytest_runtest_makereport(item, call):
         yl_log.info(f"用例位置 : {res.nodeid}")
         if hasattr(item, 'callspec'):
             case_obj = tuple(item.callspec.params.values())[0]
+            allure.dynamic.title(case_obj.title)
             yl_log.info(f"数据位置 : Sheet: < {case_obj.sheet_name} > RowNumber: < {case_obj.row} >")
             yl_log.info(f"请求地址 : {case_obj.url}")
             yl_log.info(f"请求方法 : {case_obj.method}")

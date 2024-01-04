@@ -4,11 +4,12 @@
     将 common 中的内容集成到此处
     导包时都从 common 中导
 
-    只将 test_case 和 lib 中会用到的导入到这里
+    只将 conftest 和 test_case 中可能用到的导入到这里
 
 """
 import hashlib
 import threading
+
 from common.utils.do_log import yl_log
 from common.utils.do_conf import do_conf
 from common.utils.do_mysql import DoMySql
@@ -17,6 +18,7 @@ from common.utils.do_path import ALLURE_REPORT_FOLDER, ALLURE_RESULT_FOLDER
 from common.base_api import BaseApi, requests
 from common.base_data import all_data, CaseData
 from common.base_assert import BaseAssert
+from common.base_extract import extract, extract_set
 
 
 # @Time    :  2023-12-29 15:33:44

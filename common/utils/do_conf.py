@@ -72,6 +72,14 @@ class DoConf(object):
             yaml.dump(_datas, _f)
 
     @classmethod
+    def get_all(cls):
+        """
+            读取全部数据
+            直接调用 read_all 实现
+        """
+        return cls.read_all('extract')
+
+    @classmethod
     def set_multi(cls, _keys, value):
         """
             加载 extract.yml 文件中的数据
