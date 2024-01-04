@@ -30,9 +30,7 @@ class Device(Enum):
             患者 app 传递参数时, 多了 userType / canVerifyCode 参数
             又因为 userType 值为 PUBLIC_USER, 所以我们取 public 作为患者的 app 标识
 
-        为了避免传递参数错误, 建议大家登录时, 从此处获取端的标识通过该枚举来传递
-        例:
-            Device.PC_A
+        这个枚举就放在这里做提示作用好了, 其实没什么用, 传递参数时, 如果以枚举传递, 则无法调用 split('_') 方法 ...
     """
     PC_A: str = 'pc_a'
     PC_C: str = 'pc_c'

@@ -18,6 +18,7 @@
 from typing import Dict
 
 import allure
+import jsonpath
 
 from common.utils.do_conf import do_conf
 from common.utils.do_log import yl_log
@@ -28,6 +29,11 @@ from common.utils.do_log import yl_log
 # @Email   :  gingerqgyy@outlook.com
 # @Project :  yl_test_api
 # @File    :  base_extract
+
+
+def set2yml(key, value):
+    do_conf.set(key, value)
+    yl_log.debug(f'写入数据成功, 数据为: < {key}: {value} >')
 
 
 def extract(target: Dict, *keys):
@@ -60,11 +66,24 @@ def extract_set(target: Dict, key, *keys):
         do_conf.set(key, _value)
         yl_log.debug(f'extract.yml 写入数据: {key}:{_value}')
     else:
-        yl_log.debug(f'extract.yml 未写入数据, 因为根据 {keys} 从 {target} 提取到 < None >')
+        yl_log.warning(f'extract.yml 未写入数据, 因为根据 {keys} 从 {target} 提取到 < None >')
 
 
-def json_one():
-    return
+def json_one(target: Dict, expression):
+    """
+        jsonpath 提取
+        对 target 应用 expression 表达式进行提取
+        如果没有提取到数据, 则返回 None
+        如果提取到数据, 则返回第一个
+    """
+    _target = target if isinstance(target, Dict) else eval(target)
+    _res_s = jsonpath.jsonpath(target, expression)
+    _res = _res_s[0] if _res_s else None
+    yl_log.debug(f'Json提取__提取语句: {expression}')
+    yl_log.debug(f'Json提取__提取目标: {target}')
+    yl_log.debug(f'Json提取__提取结果: {_res_s}')
+    yl_log.debug(f'Json提取__使用结果: {_res}')
+    return _res
 
 
 def json_list():
@@ -76,6 +95,8 @@ def extract_list():
 
 
 if __name__ == '__main__':
+    # extract / extract_set
+    """
     __target = {"code": "OK", "result": {"user_info": {"name": "Admin"}}}
     print('code : ', extract(__target, 'code'))
     print('result : ', extract(__target, 'result'))
@@ -84,3 +105,16 @@ if __name__ == '__main__':
 
     extract_set(__target, 'code', 'code')
     print(do_conf.get_all())
+    """
+
+    # json_one :
+    """
+    __target = {"code": "OK", "result": {"user_info": {"name": "Admin"}, 'name': '法外狂徒'}}
+    print(json_one(__target, '$..name'))
+    # """
+
+    # set2yml :
+    """
+    set2yml('demo_set', 'demo_set_value')
+    print(do_conf.get_all())
+    # """

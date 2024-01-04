@@ -48,7 +48,7 @@ class BaseApi:
         headers = {'terminal': terminal, 'token': token}
         self.headers = headers
 
-    @allure.step('发起请求')
+    @allure.step('请求')
     @AnswerTime()
     def send(self, uri: str, method: str, data=None, params=None, files=None, json=None, i_d=''):
         url = uri if uri.startswith('http') else f'{self.host}{uri}{i_d}'
