@@ -539,4 +539,40 @@ PEP8 是什么呢, 简单说就是一种编码规范, 是为了让代码 "更好
   参数化用例是根据参数化顺序处理的
   ```
 
-  
+
+## 其他
+
+### requirements.txt
+
+```apl
+# requirements.txt
+该文件存储项目需要的第三方库信息 ( 库名以及版本 ) , 新拉取项目的情况下, 只需要一行命令即可拉取所有库:
+pip install -r requirements.txt
+pip install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+1. 虚拟环境：
+... 管理库 ：
+	pip
+	
+... 生成 requirements.txt ：( 需进入虚拟环境执行 )
+	pip freeze > requirements.txt
+	
+... 从 requirements.txt 安装 ：
+	pip install -r requirements.txt
+	pip install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+
+
+2. 解释器环境
+... 管理库 ：
+	pipreqs
+	pip install pipreqs
+
+... 生成 requirements.txt ：
+	pipreqs . --encoding=utf8 --force
+	--encoding=utf8    --> windows 需要使用该参数避免 UnicodeDecodeError: 'gbk' xxxxxxxx 错误
+	--force            --> 覆盖原有文件内容
+
+... 从 requirements.txt 安装 ：
+	pip install -r requirements.txt
+	pip install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+```
