@@ -7,17 +7,17 @@ __pycache__
 
 
 # alure
-static/allure_report
-static/allure_result
+staticsss/allure_report
+staticsss/allure_result
 allure_result/
 allure_report/
 /allure_result/
 /allure_report/
 
 # 日志
-static/log
-static/log/
-static/data/~*.xlsx
-static/data/~$Delivery_System_V1.5.xlsx
+staticsss/log
+staticsss/log/
+staticsss/data/~*.xlsx
+staticsss/data/~$Delivery_System_V1.5.xlsx
 log/
 /log/

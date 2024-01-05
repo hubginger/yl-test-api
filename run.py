@@ -20,7 +20,8 @@ import pytest
 from common import ALLURE_REPORT_FOLDER, ALLURE_RESULT_FOLDER
 
 if __name__ == '__main__':
-    pytest.main(['./cases',
+    pytest.main(['./common/demo',
+                 # '-m', 'demo',
                  '--alluredir', ALLURE_RESULT_FOLDER, '--clean-alluredir'])
 
     os.system(f'allure serve {ALLURE_RESULT_FOLDER}')

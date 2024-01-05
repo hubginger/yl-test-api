@@ -16,7 +16,6 @@ import os
 import yaml
 
 from common.utils.do_path import CONF_FOLDER, DATA_FOLDER
-from common.utils.do_try import IgnoreError
 
 
 class DoConf(object):
@@ -299,7 +298,7 @@ class DoConf(object):
         """
             with 表达式简化 try/except,
             存在一个问题就是不知道表达式是对的还是错的
-        """
+
         _file = cls._file(file_name, postfix)
         if isinstance(keys, str):
             keys = [keys]
@@ -315,6 +314,8 @@ class DoConf(object):
             res[keys[-1]] = value
         with open(_file, encoding='utf8', mode='w') as _f:
             yaml.dump(data_s, _f)
+        """
+        pass
 
     @classmethod
     def __clear(cls, file_name='extract', postfix='yml'):

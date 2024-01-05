@@ -40,7 +40,7 @@ def set2yml(key, value):
 def extract(target: Dict, *keys):
     """
         根据 keys 的顺序, 按照层级从 target 中提取
-        提取出来直接存入 static/data/extract.yml 文件中
+        提取出来直接存入 staticsss/data/extract.yml 文件中
     """
     _expression = 'target'
     for key in keys:
@@ -60,7 +60,7 @@ def extract(target: Dict, *keys):
 def extract_set(target: Dict, key, *keys):
     """
         提取并存储, 根据 keys 从 target 提取后
-        存入 static/data/extract.yml
+        存入 staticsss/data/extract.yml
     """
     _value = extract(target, *keys)
     if _value:
