@@ -6,7 +6,11 @@ markers = [
 ]
 addopts = [
     "-vs",
-    "--show-capture=stderr"
+    "--show-capture=stderr",
+    "--disable-warnings",
+    "--alluredir",
+    "./static/allure_result/",
+    "--clean-alluredir"
 ]
 python_files = "test_*"
 python_classes = "Test*"
