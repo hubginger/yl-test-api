@@ -32,8 +32,26 @@ def _multi_key():
 
 
 def get_by_multi_key():
-    pass
+    di = {'a': {'b': ['00', '11', '22']}}
+    li = ['a', 'b', 0]
+
+    expr = 'di'
+    express = ''
+    for k in li:
+        if isinstance(k, int) or k.isdigit():
+            expr += f'[{k}]'
+        else:
+            expr += f'["{k}"]'
+        express += f'["{k}"]'
+
+    print(di)
+    print(di['a']['b'][0])
+    print(expr)
+    print(express)
+    print(eval(expr))
 
 
 if __name__ == '__main__':
     _multi_key()
+    print('----' * 20)
+    get_by_multi_key()

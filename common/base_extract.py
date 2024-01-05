@@ -44,7 +44,7 @@ def extract(target: Dict, *keys):
     """
     _expression = 'target'
     for key in keys:
-        _expression += f'["{key}"]'
+        _expression += f'[{key}]' if isinstance(key, int) or str(key).isdigit() else f'["{key}"]'
 
     try:
         target = target if isinstance(target, dict) else eval(target)
@@ -101,20 +101,29 @@ def extract_list():
 
 if __name__ == '__main__':
     # extract / extract_set
-    """
+    # """
     __target = {"code": "OK", "result": {"user_info": {"name": "Admin"}}}
     print('code : ', extract(__target, 'code'))
     print('result : ', extract(__target, 'result'))
     print('result.user_info : ', extract(__target, 'result', 'user_info'))
     print('result.user_info.name : ', extract(__target, 'result', 'user_info', 'name'))
 
-    extract_set(__target, 'code', 'code')
-    print(do_conf.get_all())
+    __target = {'a': {'b': ['00', '11', '22']}}
+    li1 = ['a', 'b', '0']
+    li2 = ['a', 'b', 0]
+    print('¯' * 50)
+    print(extract(__target, *li1))
+    print('¯' * 50)
+    print(extract(__target, *li2))
+    print('¯' * 50)
+    # extract_set(__target, 'code', 'code')
+    # print(do_conf.get_all())
     """
 
     # json_one :
     # """
     __target = {"code": "OK", "result": {"user_info": {"name": "Admin"}, 'name': '法外狂徒'}}
+    print(json_one(__target, '$..code'))
     print(json_one(__target, '$..id'))
     # """
 
