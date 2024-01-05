@@ -2,6 +2,7 @@
 """
 
 """
+import pytest
 
 
 # @Time    :  2024-01-03 09:51:12
@@ -12,6 +13,7 @@
 
 class TestGitee:
 
+    @pytest.mark.demo
     def test_function(self):
         print()
         pass
