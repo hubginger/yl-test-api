@@ -1,0 +1,8 @@
+host_test: 121.36.110.11
+port_test: 33060
+user_test: root
+password_test: 521125
+database: test_plat_ginger
+read_timeout: 3
+autocommit: True
+# test_plat_ginger

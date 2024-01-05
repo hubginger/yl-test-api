@@ -1,0 +1,42 @@
+# 日志等级, ( debug / info / warning / error / critical ) 大小写均可 , 一般修改 log_collection 的等级即可
+log_level:
+
+  log_collection: debug
+  out_to_console: debug
+  out_to_file: info
+
+  log_slow_console: debug
+  log_slow_file: debug
+
+# 慢接口是否输出到控制台, True --> 输出到控制台, False --> 不输出到控制台
+slow_in_console:
+  True
+
+# 字段说明
+# log_collection :  日志收集器的等级, 仅收集定义的和以上的等级, 默认为 debug, 收集所有等级
+# out_to_console :  输出到控制台的等级, 默认为 debug, 输出所有等级
+# out_to_file    :  输出到文件的等级, 默认为 ingo, 输出 info 以及 info 以上等级的日志到文件
+# log_slow_file  :  慢接口的日志等级, 默认为 debug, 仅 do_slow_api.py 装饰器会调用, 不用修改
+
+# 日志格式化输出 : (使用 colorlog 库实现 console 日志带颜色区分 )
+format:
+
+  # 不固定长度 :
+  console: '%(log_color)s[ %(asctime)s,%(msecs)03d ]  [ %(levelname)-8s ]  [ %(threadName)s  ]  [ %(filename)s / %(lineno)d / %(funcName)s ] -- -> %(message)s'
+  file: '[ %(asctime)s,%(msecs)03d ]  [ %(levelname)-8s ]  [ %(threadName)s  ]  [ %(filename)s / %(lineno)d / %(funcName)s ] -- -> %(message)s'
+  slow_api_console: '%(log_color)s[!-_-slow_api-_-!][ %(asctime)s,%(msecs)03d ] %(message)s'
+  slow_api_file: '[!-_-slow_api-_-!][ %(asctime)s,%(msecs)03d ] %(message)s'
+
+  # 固定长度 :
+  # console: '%(log_color)s[ %(asctime)s,%(msecs)03d ]  [ %(levelname)-5.5s ]  [ %(threadName) 12.12s  ]  [%(filename)15.15s / %(lineno)04d / %(funcName)-012.12s] -- -> %(message)s'
+  # file: '[ %(asctime)s,%(msecs)03d ]  [ %(levelname)-5.5s ]  [ %(threadName) 12.12s  ]  [%(filename)15.15s / %(lineno)04d / %(funcName)-012.12s] -- -> %(message)s'
+  # [ 2023-10-03 15:12:15,303,303 ]  [ DEBUG ]  [   MainThread  ]  [   log_tools.py / 0081 / print_log   ] -- -> 我是一条 debug 等级的日志
+
+
+# 日志颜色设定, 仅对本地控制台生效, 颜色修改可查看: https://github.com/borntyping/python-colorlog
+color:
+  DEBUG: 'thin_light_cyan'
+  INFO: 'thin_blue'
+  WARNING: 'yellow'
+  ERROR: 'red'
+  CRITICAL: 'bold_red'

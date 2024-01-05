@@ -1,0 +1,4 @@
+MSG_JSON: 数据解析错误
+MSG_JSON_EXPR: Json数据提取失败
+MSG_OK: 执行通过
+MSG_NO: 执行不通过

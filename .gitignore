@@ -1,0 +1,23 @@
+# 项目, 缓存
+.settings/
+.idea/
+.pytest_cache/
+__pycache__
+/__pycache__/
+
+
+# alure
+static/allure_report
+static/allure_result
+allure_result/
+allure_report/
+/allure_result/
+/allure_report/
+
+# 日志
+static/log
+static/log/
+static/data/~*.xlsx
+static/data/~$Delivery_System_V1.5.xlsx
+log/
+/log/
