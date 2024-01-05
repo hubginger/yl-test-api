@@ -6,10 +6,12 @@
 yl_test_api                            |-> 项目名
 ├── cases                              |-> 用例总目录
 │	└── test_case_xx1(包/模块)          |-> 自定义用例目录 / 自定义用例模块
-│	└── test_case_xx2(包/模块)          |-> 自定义用例目录 / 自定义用例模块
-│	└── test_case_xx3(包/模块)          |-> 自定义用例目录 / 自定义用例模块
-│	└── conftest                       |-> 用例总 conftest, 编码日志
+│	└── test_case_xx2(包/模块)          |-> 自定义
+│	└── test_case_xx3(包/模块)          |-> 自定
+│	└── test_case_xx4(包/模块)          |-> 自
+│	└── conftest                       |-> 用例总 conftest, 收集编码日志等
 ├── common                             |-> 公共封装目录
+│	└── demo                           |-> git 忽略, 请在该目录编辑调试代码 
 │	└── utils                          |-> 工具封装目录
 │		└── do_conf                    |-> 配置文件操作
 │		└── do_excel                   |-> Excel 读写
@@ -23,9 +25,11 @@ yl_test_api                            |-> 项目名
 │	└── base_api                       |-> requests 封装, 发请求, 简化登录等
 │	└── base_assert                    |-> assert 封装, 
 │	└── base_data                      |-> Excel全量数据, 
-│	└── base_device                    |-> emmm, 枚举, 没用, 当个注释吧
-│	└── base_extract                   |-> 提值写值, 提响应, 写extract.yml
-├── static                             |-> 静态资源目录
+│	└── base_device                    |-> emmm, 端标记枚举, 没用, 当个注释吧
+│	└── base_extract                   |-> 提值写值, 提响应, 写 extract.yml
+├── dist                               |-> 打包存放目录, poetry build 打在这儿
+│	└── yl_test_api-1.0.1.tar.gz       |-> poetry build 打出的包
+├── static                             |-> 静态资源目录, 配合 poetry 改成了包
 │	└── allure_report                  |-> allure 报告暂存目录
 │	└── allure_result                  |-> allure 数据暂存目录
 │	└── conf                           |-> 配置目录
@@ -35,16 +39,37 @@ yl_test_api                            |-> 项目名
 │		└── login.yml                  |-> 登录配置文件
 │		└── mongo.yml                  |-> MongoDB 数据库配置文件
 │		└── request.yml                |-> 请求配置文件, host, verify_url
-│		└── slow_api.yml               |-> 慢接口配置, 就一个, 多少毫秒
+│		└── slow_api.yml               |-> 慢接口配置, 就一个值表示多少毫秒
 │	└── data                           |-> 数据目录, Excel 和 extract(存值)
-│		└── Delivery_System_V1.5.xlsx  |-> Excel 文件, 这个 yft 的
+│		└── Delivery_System_V1.5.xlsx  |-> Excel 文件, 这个时 yft 的
 │		└── extract.yml                |-> 存值文件, 运行时提取的值存在这里
 │	└── log                            |-> 日志目录, 项目日志, 慢接口日志
-├── .gitignore                         |-> git 忽略文件
-├── pytest.ini                         |-> pytest 配置文件
-├── readme.md                          |-> .
-├── requirements.txt                   |-> 项目第三方库记录文件
+├── .gitignore                         |-> git 忽略文件, 定义哪些不上传
+├── pyproject.toml                     |-> 打包配置, pytest 配置, 二合一属于是
+├── readme.md                          |-> . 项目说明 .
 └── run.py                             |-> 项目启动文件
+
+
+# 说明 : 
+yl_test_api       
+├── requirements.txt                   |-> 项目第三方库记录文件, 已弃用
+└── pytest.ini                         |-> pytest 配置文件, 已弃用
+这两个文件已弃用, 但是大家可能用得到 ...
+
+1.requirements.txt
+	可以很方便的管理第三方库, 因为配置了打包信息, 所以我们不再维护该文件
+	但是, 由于咱项目使用 poetry 维护第三方库, 而大家可能会习惯用 pip
+	就导致 pip 安装的第三方库不是很方便定义在 pyproject.toml 目录中
+	那么我们就可以先使用生成命令生成 requirements.txt 文件
+	然后将文件中第三方库和版本信息复制到 pyproject.toml 中
+ps: 如果某一天使用 requirements.txt 了, 需到 .gitignore 取消忽略
+
+2.pytest.ini
+	pytest 的配置文件, 一般 pytest 项目都采用该文件定义配置信息
+	因为我们使用 poetry 打包会自动生成 pyproject.toml 文件
+	而 pytest 本身也支持通过 pyproject.toml 文件维护配置
+	所以我们将 pytest 的配置放在 pyproject.toml 中维护
+	但是, 后续自定义配置多了后可能会重新用 pytest.ini
 ```
 
 ## 部分说明
@@ -544,6 +569,8 @@ PEP8 是什么呢, 简单说就是一种编码规范, 是为了让代码 "更好
 
 ### requirements.txt
 
+requirements.txt 当前已经在项目中弃用了, 但是该文件依旧很有用, 因为当前暂不了解如何一键生成所有第三方库信息到 pyproject.toml 文件, 所以当我们添加了较多第三方库, 或者不清除用到了哪些第三方库时, 就可以通过 requirements.txt 先生成信息后, 复制粘贴到 pyproject.toml 中来管理和维护
+
 ```apl
 # requirements.txt
 该文件存储项目需要的第三方库信息 ( 库名以及版本 ) , 新拉取项目的情况下, 只需要一行命令即可拉取所有库:
@@ -576,3 +603,25 @@ pip install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host
 	pip install -r requirements.txt
 	pip install -r requirements.txt -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 ```
+
+### poetry
+
+poetry 要求Python版本大于 3.7. [poetry项目地址](https://github.com/python-poetry/poetry)
+
+```apl
+# poetry
+Python 打包的工具
+这里我们关注两点:
+
+1.pyproject.toml 
+	该配置文件中维护了打包信息, 第三方库信息, 镜像等
+	我们使用项目过程中如果安装了第三方库记得维护进来
+
+2.poetry 命令
+	poetry install        --> 安装所有库到本地 ( 一般是本地虚拟环境 )   | 主要
+	poetry build          --> 打包                                 | 主要
+	poetry add flask      --> 安装 flask 库
+	poetry remove flask   --> 卸载 flask 库
+	poetry show           --> 查看已经安装的第三方库
+```
+
