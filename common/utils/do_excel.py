@@ -283,8 +283,8 @@ class DoExcel:
     @staticmethod
     def __json(target: str):
         """
-            转 json 成功, 则返回 json
-            转 json 失败, 则返回 target
+            转 json 成功, 则返回 json ( dict )
+            转 json 失败, 则返回 target ( str )
 
             target 类型非 str, ---> TypeError
             target 内容非 json, ---> JSONDecodeError

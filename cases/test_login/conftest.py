@@ -24,6 +24,8 @@ def login(request):
     """
     datas: ExcelData = request.param
     yl_log.debug(f'参数化读取到数据: {datas}')
+    # 将验证码和验证码的 id 替换到请求参数中
     datas.data.update(get_verify_info())
     datas.data['password'] = md5(datas.data['password'])
+    yl_log.debug(f'替换处理数据: {datas}')
     yield datas

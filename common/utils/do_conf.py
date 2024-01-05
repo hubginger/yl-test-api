@@ -43,6 +43,7 @@ class DoConf(object):
     @classmethod
     def get(cls, _keys):
         """
+            从 extract.yml 获取数据
             _keys 可传 str 或 list / tuple
                 str :            返回顶层 key 对应的 value
                 list / tuple :   list 中的顺序与 yaml 中的 key 顺序保持一致, 任意一个 key 未匹配到时, 返回 None
